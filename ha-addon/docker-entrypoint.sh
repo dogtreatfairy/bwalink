@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bashio
+# UNIX-like line breaks
 
 bashio::log.info "Starting BWALink addon..."
 
