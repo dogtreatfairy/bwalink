@@ -1,6 +1,6 @@
 name: "BWALink"
 description: "This Balboa Worldwide App Addon is interacting with Wifi spa controllers from Balboa Water Group using a serial to ip gateway."
-version: "2024.8.1"
+version: "2024.8.0"
 slug: "bwalink"
 init: false
 arch:
