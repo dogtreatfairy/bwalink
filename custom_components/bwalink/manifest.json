@@ -1,0 +1,15 @@
+{
+    "domain": "bwalink",
+    "name": "BWALink",
+    "after_dependencies": ["http"],
+    "codeowners": ["@jshank", "@dogtreatfairy"],
+    "dependencies": ["mqtt"],
+    "documentation": "https://github.com/dogtreatfairy/bwalink",
+    "integration_type": "hub",
+    "iot_class": "local_polling",
+    "issue_tracker": "https://github.com/dogtreatfairy/bwalink/issues",
+    "loggers": [],
+    "requirements": [],
+    "quality_scale": "silver",
+    "version": "2024.8.0"
+}
