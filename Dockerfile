@@ -1,18 +1,24 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM}
 
-RUN apk update
-RUN apk --no-cache add bash curl curl-dev ruby-dev build-base
-RUN apk --no-cache add ruby ruby-io-console ruby-irb \
-  ruby-json ruby-etc ruby-bigdecimal ruby-rdoc \
-  libffi-dev zlib-dev ruby-bundler
-RUN bundle config set deployment 'true'
-RUN gem install balboa_worldwide_app
-RUN apk add --no-cache socat tzdata
-RUN apk del build-base
-RUN rm -rf /var/cache/apk/*
+# Update and install necessary packages in a single RUN to reduce image layers
+RUN apk update && apk add --no-cache \
+    bash \
+    curl \
+    ruby \
+    ruby-dev \
+    ruby-bundler \
+    libffi-dev \
+    zlib-dev \
+    socat \
+    tzdata \
+    build-base \
+  && bundle config set deployment 'true' \
+  && gem install balboa_worldwide_app \
+  && apk del build-base \
+  && rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
 ADD docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
-CMD [ "/docker-entrypoint.sh" ]
+CMD ["/docker-entrypoint.sh"]
