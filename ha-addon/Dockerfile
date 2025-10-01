@@ -18,7 +18,7 @@ RUN apk update && apk add --no-cache \
   && apk del build-base \
   && rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
-ADD docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
+ADD run.sh /
+RUN chmod +x /run.sh
 
-CMD ["/docker-entrypoint.sh"]
+CMD ["/run.sh"]
